@@ -16,8 +16,11 @@ class Nodo():
 
     def eliminar_conexion(self,nodo):
         self.conexiones.remove(nodo)
-        time.sleep(3)
         print(f"{nodo.nombre} salio del server")
+        time.sleep(3)
+        servidor.agregar_conexiones(nodo)
+        print("Simulando desconexión y reconexión dinámica…")
+        
 
 if __name__=="__main__":
     import time
@@ -44,9 +47,4 @@ if __name__=="__main__":
     servidor.eliminar_conexion(cliente3)
 
     print(" ")
-
-    servidor.agregar_conexiones(cliente1)
-    servidor.agregar_conexiones(cliente2)
-    servidor.agregar_conexiones(cliente3)
-
     servidor.enviar_mensaje("hola a todos de nuevo")
